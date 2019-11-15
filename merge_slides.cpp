@@ -26,9 +26,14 @@ int main() {
         std::string sequence;
         sin.str(line);
         sin.clear();
-        while (sin.good()) {
-            sin >> temp_num;
+        while (sin >> temp_num) {
+            if (temp_num <= 0) {
+                return 0;
+            }
             input_nums.push_back(temp_num);
+        }
+        if (!sin.eof()) {
+            return 0;
         }
         std::cout << MergeSlides(input_nums, sequence) << ' ' << sequence << std::endl;
         std::getline(std::cin, line);

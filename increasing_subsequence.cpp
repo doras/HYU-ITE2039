@@ -14,7 +14,7 @@ int main() {
     while (line != "") {
         sin.str(line);
         sin.clear();
-        sin >> input_str;
+        std::getline(sin, input_str, ' ');
         std::cout << lis(input_str) << std::endl;
         std::getline(std::cin, line);
     }
